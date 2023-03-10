@@ -10,5 +10,21 @@ function getItems() {
     return JSON.parse(value);
 }
 
+function setItems(items) {
+    const itemsJson = JSON.stringify(items);
+
+    localStorage.setItem('todo', itemsJson);
+}
+
+function addItem() {
+    items.unshift({
+        description: "",
+        completed: false
+    });
+
+    setItems(items);
+    refreshList();
+}
+
 console.log(items);
 
