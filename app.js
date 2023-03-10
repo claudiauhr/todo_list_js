@@ -1,6 +1,6 @@
 const ITEMS_CONTAINER = document.getElementById('items');
 const ITEM_TEMPLATE = document.getElementById('itemTemplate');
-constADD_BUTTON = document.getElementById('add');
+const ADD_BUTTON = document.getElementById('add');
 
 let items = getItems();
 
@@ -41,6 +41,11 @@ function refreshList() {
         ITEMS_CONTAINER.append(itemElement);
     }
 }
+
+ADD_BUTTON.addEventListener("click", () => {
+    addItem();
+});
+
 
 refreshList();
 
