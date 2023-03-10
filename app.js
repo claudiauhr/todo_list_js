@@ -26,5 +26,21 @@ function addItem() {
     refreshList();
 }
 
-console.log(items);
+function refreshList() {
+
+    ITEMS_CONTAINER.innerHTML = "";
+
+    for (const item of items) {
+        const itemElement = ITEM_TEMPLATE.content.cloneNode(true);
+        const descriptionInput = itemElement.querySelector(".item-description");
+        const completedInput = itemElement.querySelector(".item-completed");
+
+        descriptionInput.value = item.description;
+        completedInput.checked = item.completed;
+
+        ITEMS_CONTAINER.append(itemElement);
+    }
+}
+
+refreshList();
 
