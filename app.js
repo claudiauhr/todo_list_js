@@ -26,6 +26,12 @@ function addItem() {
     refreshList();
 }
 
+function updateItem(item, key, value) {
+    item[key] = value;
+    setItems(items);
+    refreshList();
+}
+
 function refreshList() {
 
     ITEMS_CONTAINER.innerHTML = "";
@@ -37,6 +43,14 @@ function refreshList() {
 
         descriptionInput.value = item.description;
         completedInput.checked = item.completed;
+
+        descriptionInput.addEventListener("change", () => {
+            updateItem(item, "description", descriptionInput.value);
+        });
+
+        completedInput.addEventListener("change", () => {
+            updateItem(item, "completed", completedInput.checked);
+        });
 
         ITEMS_CONTAINER.append(itemElement);
     }
